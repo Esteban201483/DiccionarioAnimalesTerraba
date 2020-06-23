@@ -15,8 +15,8 @@
         android:background="#FFFFFF"
         android:orientation="vertical"
         android:weightSum="15"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView"

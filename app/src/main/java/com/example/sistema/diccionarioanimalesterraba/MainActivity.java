@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int index = 0;
-    float start = 0;
-    int upperBound = 40;
-    int lowerBound = 1;
+    int index = 0; //Indica el número de página actual
+    float start = 0; //Indica la posición actual del toque del usuario durante un deslizamiento
+    int upperBound = 40; //Indica el número máximo de página
+    int lowerBound = 1; //Indica el número mínimo de página
 
 
     String nombre = "animales";
@@ -66,14 +66,13 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             }
-        }
-
-        );
-
-
-
+        });
     }
 
+    /**
+     * Actualiza la imagen desplegada dependiendo del indice actual, el cual es global
+     * @param imageView la rerefencia al imageView que despliega la imagen
+     */
     public void actualizarImagen(ImageView imageView)
     {
         String nombre_imagen = nombre + index;
@@ -82,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
         imageView.setImageResource(id_imagen);
     }
 
+    /**
+     * Avanza a la próxima página
+     * @param img la referencia al imageView que despliega la imagen
+     */
     public void rightSlide(View img)
     {
         ImageView imageView = (ImageView) img;
@@ -93,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * Retrocede a la página anterior
+     * @param img referencia al imageView
+     */
     public void leftSlide(View img)
     {
         ImageView imageView = (ImageView) img;
@@ -104,6 +112,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Cambia la imagen desplegada de acuerdo a la opción seleccionada en el menú
+     * @param newIndex
+     */
     public void irOpcion(int newIndex)
     {
         ImageView img = (ImageView) findViewById(R.id.imageView);
@@ -111,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
         actualizarImagen(img);
     }
 
+    /**
+     * Despliega un menú con todas las opciones disponibles de navegación
+     * @param v
+     */
     public void displayMenuList(View v)
     {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
