@@ -1,5 +1,6 @@
 package com.example.sistema.diccionarioanimalesterraba;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     float start = 0;
     int upperBound = 40;
     int lowerBound = 1;
+
 
     String nombre = "animales";
 
@@ -111,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayMenuList(View v)
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Indice");
 
 
-        String[] categorias = {"Portada", "Marinos", "Reptiles", "Voladores",
-        "¿?"};
+        String[] categorias = {"Portada", "Díro isó", "Bugúr", "Dubúc SÓ̲ga",
+        "Ó̲ya dré t'oc é", "Créditos", "Desarrollado Por"};
         builder.setItems(categorias, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -126,7 +128,20 @@ public class MainActivity extends AppCompatActivity {
                     case 2:  irOpcion(11);    break;//Reptiles
                     case 3:  irOpcion(13);    break;//Voladores
                     case 4:  irOpcion(23);    break;//¿?
+                    case 5:  irOpcion(40);    break;//Créditos
+                    case 6:
 
+                        AlertDialog.Builder developers = new AlertDialog.Builder(builder.getContext());
+                        developers.setMessage("Desarrolladores: \n \n" +
+                                ("Esteban Rojas Solís \n \n" +
+                                "Daniel Escamilla Leon Paez"))
+                                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                    }
+                                });
+                        developers.create().show();
+                    break;
                 }
             }
         });
